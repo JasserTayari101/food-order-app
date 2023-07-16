@@ -1,0 +1,13 @@
+.cart-container{
+    background-color: #FFD8CC;
+    color: #C68B59;
+    width: 10rem;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+h3 > span{
+    background-color: #365e96;
+    border-radius: 5px;
+    padding: 1px;
+}
