@@ -3,11 +3,11 @@ import './NavBar.css';
 import Cart from './Cart';
 
 
-export default function NavBar() {
+export default function NavBar(props) {
     return(
         <nav className='navbar'>
             <h1 className='logo'>ReactMeals</h1>
-            <Cart />
+            <Cart addDish={props.addDish} />
         </nav>
     )
 }

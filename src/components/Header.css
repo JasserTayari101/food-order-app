@@ -19,3 +19,8 @@
     justify-content: space-between;
     font-size: 1.5rem;
 }
+@media screen and (max-width: 500px) {
+    .info-box{
+        font-size: 1rem;
+    }
+}
