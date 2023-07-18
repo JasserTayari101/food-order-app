@@ -14,19 +14,20 @@ export default function Dish({info,onAdd}) {
             name:info.name,
             number:amount
         });
+        setAmount(0);
     }
 
     return(
         <div className="dish-container">
             <div>
-                <h3>{info.name}</h3>
-                <p> {info.description} </p>
-                <span> {info.price} </span>
+                <h3 className='dish-title'>{info.name}</h3>
+                <p className='dish-description'> {info.description} </p>
+                <span className='dish-price'> {info.price} </span>
             </div>
             <div>
-                <label htmlFor={`${info.name}-input`}>Amount</label>
-                    <input type="number" id={`${info.name}-input`} value={amount} onChange={amountChangeHandler} />
-                <button onClick={buttonAddHandler}>+ Add</button>
+                <label className='dish-amount-label' htmlFor={`${info.name}-input`}>Amount</label>
+                    <input className='dish-amount-input' type="number" id={`${info.name}-input`} value={amount} onChange={amountChangeHandler} />
+                <button className='dish-add-btn' onClick={buttonAddHandler}>+ Add</button>
             </div>
         </div>
     )

@@ -17,3 +17,9 @@
     font-family: 'Rubik', sans-serif;
     font-size: 2rem;
 }
+
+@media screen and (max-width:500px) {
+    .logo{
+        font-size: 15px;
+    }
+}

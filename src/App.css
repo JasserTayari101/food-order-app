@@ -9,3 +9,10 @@ html{
   min-height: 100vh;
   background-color: #0A1D37;
 }
+
+.app-container{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}

@@ -3,25 +3,34 @@
     border-radius: 10px;
     width: 80%;
     padding: 10px;
-    background-color: #C68B59;
+    background-color: #eeb07a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .info-box-card{
     transform: translateY(-30%);
     background-color: #C68B59;
 }
+@media screen and (max-width:500px) {
+    .info-box-card{
+        transform: translateY(-10%);
+    }
+}
 
 .menu-container{
     display: flex;
     flex-direction: column;
+    gap: 5px;
+    background-color: brown;
 }
 
 
 @media screen and (min-width: 1200px) {
-    .card{
-        width: 30%;
-    }
     .info-box-card{
+        width: 30%;
         transform: translateY(-80%);
     }
 }

@@ -1,13 +1,42 @@
 import './Cart.css';
 
-import {useState,useEffect} from 'react';
+import React,{useState,useEffect} from 'react';
+import ReactDOM from 'react-dom';
+
+import Card from './UI/Card';
+
+function Backdrop(props) {
+    return <div onClick={props.onClick} className='backdrop'></div>
+}
+
+function ModalOverlay(props) {
+    let content = props.orders.length >0?
+        <Card className="modal">
+            <header>
+                <h2>Cart Content</h2>
+            </header>
+            <div>
+                {props.orders.map(order=>{
+                    return <div key={order.name}>
+                        <h3>{order.name}</h3>
+                        <p>{order.number}</p>
+                    </div>
+                })}
+            </div>
+        </Card> : 
+        
+        <Card className="modal">
+            <p className='warning'>Empty Cart</p>
+        </Card>
+    return content
+}
 
 export default function Cart(props) {
     const [orders,setOrders] = useState([
-        {name:'apple',number:5},
-        {name:'sushi',number:3},
-        {name:'brika',number:2}
+
     ]);
+
+    const [isModalVisible,setIsModalVisible] = useState(false);
 
     useEffect(()=>{
         if(props.addDish!==null){
@@ -35,9 +64,19 @@ export default function Cart(props) {
         return orderNumber;
     }
 
+    function toggleModal() {
+        setIsModalVisible(!isModalVisible);
+    }
+
     return(
-        <div className='cart-container'>
-            <h3>Your Cart <span>{calculateOrders()}</span> </h3>
-        </div>    
+        <React.Fragment>
+            <div className='cart-container' onClick={toggleModal}>
+                <h3>Your Cart <span>{calculateOrders()}</span> </h3>
+            </div>    
+            
+            { isModalVisible && ReactDOM.createPortal(<Backdrop onClick={toggleModal} />,document.getElementById('backdrop-root'))}
+
+            { isModalVisible && ReactDOM.createPortal(<ModalOverlay orders={orders} />,document.getElementById('overlay-root'))}
+        </React.Fragment>
     )
 }

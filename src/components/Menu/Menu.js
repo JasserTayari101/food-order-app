@@ -7,6 +7,7 @@ export default function Menu(props) {
     const [dishes,setDishes] = useState([
         {id:0,name:'sushi',description:'finest fish and veggies',price:22.99},
         {id:1,name:'schnitzel',description:'a german speciality!',price:16.50},
+        {id:2,name:'brika',description:'a traditional ramadhan tunisian food',price:1.5}
     ]);
 
     return(

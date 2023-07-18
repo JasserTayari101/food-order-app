@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: min-content;
 }
 
 .header img{
@@ -12,15 +13,21 @@
     position: relative;
 }
 
+
+
 .info-box{
     display: flex;
     flex-direction: column;
     gap: 10px;
     justify-content: space-between;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
-@media screen and (max-width: 500px) {
+
+@media screen and (max-width:500px) {
     .info-box{
-        font-size: 1rem;
+        font-size: 12px;
+    }
+    .header img{
+        transform: translateY(-30%) rotateZ(-5deg);
     }
 }

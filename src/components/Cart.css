@@ -4,10 +4,54 @@
     width: 10rem;
     padding: 1rem;
     border-radius: 10px;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow:1px 3px 10px black ;
 }
+.cart-container:hover{
+    cursor: pointer;
+}
+
+@media screen and (max-width:500px) {
+    .cart-container{
+        width: 50%;
+        font-size: 10px;
+    }
+}
+
 
 h3 > span{
     background-color: #365e96;
     border-radius: 5px;
     padding: 1px;
+}
+
+
+.hidden{
+    display: none;
+}
+
+.backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.modal{
+    position: fixed;
+    top: 30vh;
+    left: 10%;
+    width: 80%;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.warning{
+    color: rgb(219, 67, 67);
 }

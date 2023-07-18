@@ -3,4 +3,37 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid black;
+    width: 100%;
+}
+
+.dish-title{
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.dish-price{
+    color: rgb(149, 236, 141);
+    position: relative;
+    margin-left: 10px;
+}
+.dish-price::after{
+    content: '$';
+    position: absolute;
+    left: -10px;
+}
+.dish-amount-label{
+    font-size: 15px;
+}
+.dish-amount-input{
+    width:  40px;
+}
+
+@media screen and (max-width: 500px){
+    .dish-description{
+        font-size: 10px;
+        max-width: 70%;
+    }
+    .dish-title{
+        font-size: 15px;
+    }
 }

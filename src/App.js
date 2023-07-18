@@ -11,11 +11,11 @@ function App() {
     setAddDish(dish);
   }
   return (
-    <React.Fragment>
+    <div className='app-container'>
       <NavBar addDish={addDish} />
       <Header />
       <Menu onDishAdd={addDishHandler} />
-    </React.Fragment>
+    </div>
   )
 }
 
