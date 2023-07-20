@@ -58,7 +58,7 @@ h3 > span{
 }
 
 .modal-content{
-    width: 30%;
+    width: 40%;
 }
 .modal .dish-content{
     display: flex;
@@ -74,7 +74,15 @@ h3 > span{
     background: transparent;
     border: none;
     cursor: pointer;
+    margin-left: 10px;
 }
+
+.modal .dish-content .price{
+    color: rgb(52, 150, 43);
+    font-weight: 500;
+    border: 1px solid black;
+}
+
 .warning{
     color: rgb(219, 67, 67);
 }

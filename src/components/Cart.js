@@ -1,6 +1,6 @@
 import './Cart.css';
 
-import React,{useState,useEffect,useRef} from 'react';
+import React,{useState,useEffect} from 'react';
 import ReactDOM from 'react-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -21,10 +21,14 @@ function ModalOverlay(props) {
                 {props.orders.map(order=>{
                     return <div key={order.name} className="dish-content">
                         <p>{order.number}</p>
+                        <span className="price" >x ${order.price}</span>
                         <h3>{order.name}</h3>
+                        <span className='dish-total'>{order.name}'s Total: ${Number(order.number*order.price).toFixed(2)}</span>
+                        
                         <button onClick={()=>props.onClose(order.name)}><FontAwesomeIcon icon={faXmark} size='xl' style={{color:'red'}} /></button>
                     </div>
                 })}
+                <h2>Total: ${Number(props.orders.reduce((prevV,accum)=>prevV+accum.number*accum.price,0)).toFixed(2)}</h2>
             </div>
         </Card> : 
         
@@ -44,7 +48,7 @@ export default function Cart(props) {
     
     function dishClickHandler(nameToDelete) {
         let ordersCopy = [...orders];
-        let filteredCopy = ordersCopy.filter(order=>order.name!=nameToDelete);
+        let filteredCopy = ordersCopy.filter(order=>order.name!==nameToDelete);
         setOrders(filteredCopy);
     }
     
@@ -66,7 +70,7 @@ export default function Cart(props) {
                 }
             })
             if(!found){
-                ordersCopy.push({name:props.addDish.name,number:Number(props.addDish.number)})
+                ordersCopy.push({name:props.addDish.name,number:Number(props.addDish.number),price:props.addDish.price})
             }
     
             setOrders(ordersCopy);

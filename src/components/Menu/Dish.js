@@ -6,13 +6,15 @@ export default function Dish({info,onAdd}) {
     const [amount,setAmount] = useState(0);
 
     function amountChangeHandler(e) {
-        setAmount(e.target.value);
+        if(Number(e.target.value)>=0)
+            setAmount(e.target.value);
     }
 
     function buttonAddHandler(){
         onAdd({
             name:info.name,
-            number:amount
+            number:amount,
+            price:info.price
         });
         setAmount(0);
     }
@@ -26,7 +28,7 @@ export default function Dish({info,onAdd}) {
             </div>
             <div>
                 <label className='dish-amount-label' htmlFor={`${info.name}-input`}>Amount</label>
-                    <input className='dish-amount-input' type="number" id={`${info.name}-input`} value={amount} onChange={amountChangeHandler} />
+                    <input className='dish-amount-input' type='number' id={`${info.name}-input`} value={amount} onChange={amountChangeHandler} />
                 <button className='dish-add-btn' onClick={buttonAddHandler}>+ Add</button>
             </div>
         </div>
