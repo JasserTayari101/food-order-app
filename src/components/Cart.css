@@ -51,7 +51,35 @@ h3 > span{
     z-index: 100;
     overflow: hidden;
 }
+.modal h2{
+    font-size: 30px;
+    text-transform: uppercase;
+    text-decoration: underline 2px #365e96;
+}
 
+.modal-content{
+    width: 30%;
+}
+.modal .dish-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal .dish-content p{
+    color: #365e96;
+    font-size: 25px;
+    font-weight: 800;
+}
+.modal .dish-content button{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
 .warning{
     color: rgb(219, 67, 67);
+}
+
+.bump{
+    transform: scale(1.1);
+    transition: all .1s;
 }

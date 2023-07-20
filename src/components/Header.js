@@ -2,7 +2,6 @@ import './Header.css';
 
 import meals from '../assets/meals.jpg';
 import Card from './UI/Card';
-
 export default function Header() {
     return(
         <div className='header'>

@@ -23,9 +23,21 @@
 }
 .dish-amount-label{
     font-size: 15px;
+    font-weight: 500;
 }
 .dish-amount-input{
     width:  40px;
+}
+
+.dish-add-btn{
+    padding: 2px;
+    border: none;
+    background-color: #FFBD9B;
+    margin-left: 10px;
+}
+.dish-add-btn:hover{
+    transform: scale(1.1);
+    transition: all .1s;
 }
 
 @media screen and (max-width: 500px){

@@ -8,7 +8,8 @@ import Menu from './components/Menu/Menu';
 function App() {
   const [addDish,setAddDish] = useState(null);
   function addDishHandler(dish) {
-    setAddDish(dish);
+    if(dish.number>0)
+      setAddDish(dish);
   }
   return (
     <div className='app-container'>
