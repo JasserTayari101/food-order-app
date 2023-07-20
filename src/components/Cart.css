@@ -58,7 +58,7 @@ h3 > span{
 }
 
 .modal-content{
-    width: 40%;
+    width: 60%;
 }
 .modal .dish-content{
     display: flex;
@@ -81,6 +81,27 @@ h3 > span{
     color: rgb(52, 150, 43);
     font-weight: 500;
     border: 1px solid black;
+}
+
+.modal-footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modal-footer .order-btn{
+    border: 1px solid white;
+    padding: 5px;
+    background: transparent;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #365e96;
+}
+
+.modal-footer .order-btn:hover{
+    transform: translateX(5px);
+    transition: all .2s;
 }
 
 .warning{

@@ -5,6 +5,8 @@ import ReactDOM from 'react-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+
 
 import Card from './UI/Card';
 
@@ -24,11 +26,14 @@ function ModalOverlay(props) {
                         <span className="price" >x ${order.price}</span>
                         <h3>{order.name}</h3>
                         <span className='dish-total'>{order.name}'s Total: ${Number(order.number*order.price).toFixed(2)}</span>
-                        
+
                         <button onClick={()=>props.onClose(order.name)}><FontAwesomeIcon icon={faXmark} size='xl' style={{color:'red'}} /></button>
                     </div>
                 })}
-                <h2>Total: ${Number(props.orders.reduce((prevV,accum)=>prevV+accum.number*accum.price,0)).toFixed(2)}</h2>
+                <div className='modal-footer'>
+                    <h2>Total: ${Number(props.orders.reduce((prevV,accum)=>prevV+accum.number*accum.price,0)).toFixed(2)}</h2>
+                    <button className='order-btn' onClick={props.orderHandler}><FontAwesomeIcon icon={faCartShopping} />Order Now</button>
+                </div>
             </div>
         </Card> : 
         
@@ -52,6 +57,10 @@ export default function Cart(props) {
         setOrders(filteredCopy);
     }
     
+    function orderHandler(){
+        setOrders([]);
+        setIsModalVisible(false);
+    }
 
     useEffect(()=>{
         if(props.addDish!==null){   //to avoid exectution on mount
@@ -96,7 +105,7 @@ export default function Cart(props) {
             
             { isModalVisible && ReactDOM.createPortal(<Backdrop onClick={toggleModal} />,document.getElementById('backdrop-root'))}
 
-            { isModalVisible && ReactDOM.createPortal(<ModalOverlay orders={orders} onClose={dishClickHandler} />,document.getElementById('overlay-root'))}
+            { isModalVisible && ReactDOM.createPortal(<ModalOverlay orders={orders} onClose={dishClickHandler} orderHandler={orderHandler} />,document.getElementById('overlay-root'))}
         </React.Fragment>
     )
 }
